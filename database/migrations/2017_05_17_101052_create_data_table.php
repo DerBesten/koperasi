@@ -30,8 +30,9 @@ class CreateDataTable extends Migration
             $table->string('bio')->nullable();
             $table->string('tlp')->nullable();
             $table->string('status_perkawinan')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status');
             $table->string('performance')->nullable();
+            $table->string('group')->nullable();
             $table->timestamps();
         });
     }

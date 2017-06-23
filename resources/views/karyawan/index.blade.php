@@ -27,10 +27,10 @@
                     <tr>
                       <th>No</th>
                       <th>Nama Karyawan</th>
-                      <th>Status</th>
                       <th>Nomor Handphone</th>
                       <th>Email</th>
-                      <th>Pekerjaan</th>
+                      <th>Group</th>
+                      <th>Status</th>
                       <th class="text-nowrap">Option</th>
                     </tr>
                   </thead>
@@ -39,16 +39,38 @@
                     <tr>
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $kar->nama}}</td>
-                      <td>
-                        @if($kar->status === "Sudah Melamar")
-                        <span class="label label-round label-success">{{ $kar->status }}</span>
-                        @elseif($kar->status === "Belum Melamar")
-                        <span class="label label-round label-danger">{{ $kar->status }}</span>
-                        @endif
-                      </td>
                       <td>{{ $kar->tlp}}</td>
                       <td>{{ $kar->email }}</td>
-                      <td>{{ $kar->pekerjaan}}</td>
+                      <td>{{ $kar->group }}</td>
+                      <td>
+                        <div class="dropdown">
+                          @if($kar->status === "1")
+                          <button type="button" class="btn btn-success dropdown-toggle" id="exampleColorDropdown5" data-toggle="dropdown" aria-expanded="false">Active
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
+                            <li role="presentation"><a href="{{ url('karyawan/booking/'.$kar->caddy_id) }}" role="menuitem">Booking</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/notactive/'.$kar->caddy_id) }}" role="menuitem">Not Active</a></li>
+                          </ul>
+                          @elseif($kar->status === "2")
+                          <button type="button" class="btn btn-danger dropdown-toggle" id="exampleColorDropdown5" data-toggle="dropdown" aria-expanded="false">Not Active
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
+                            <li role="presentation"><a href="{{ url('karyawan/active/'.$kar->caddy_id) }}" role="menuitem">Active</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/booking/'.$kar->caddy_id) }}" role="menuitem">Booking</a></li>
+                          </ul>
+                          @elseif($kar->status === "3")
+                          <button type="button" class="btn btn-info dropdown-toggle" id="exampleColorDropdown5" data-toggle="dropdown" aria-expanded="false">Booking
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
+                            <li role="presentation"><a href="{{ url('karyawan/active/'.$kar->caddy_id) }}" role="menuitem">Active</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/notactive/'.$kar->caddy_id) }}" role="menuitem">Not Active</a></li>
+                          </ul>
+                          @endif
+                        </div>
+                      </td>
                       <td class="text-nowrap">
                         <a href="{{ url('/karyawan/detail/'.$kar->caddy_id) }}">
                           <button type="button" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" data-original-title="View">

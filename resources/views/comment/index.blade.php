@@ -33,6 +33,21 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label class="col-sm-3 control-label">Rating Pramu Golf</label>
+                    <div class="col-sm-9">
+                      <div class="example">
+                        <div class="rating" data-plugin="rating" style="cursor: pointer;">
+                          <i data-alt="1" class="icon wb-star" title="bad"></i>&nbsp;
+                          <i data-alt="2" class="icon wb-star" title="poor"></i>&nbsp;
+                          <i data-alt="3" class="icon wb-star" title="regular"></i>&nbsp;
+                          <i data-alt="4" class="icon wb-star" title="good"></i>&nbsp;
+                          <i data-alt="5" class="icon wb-star" title="gorgeous"></i>
+                          <input name="score" type="hidden"></div>
+                </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="form-group">
                     <label class="col-sm-3 control-label">Comment status</label>
                       <div class="col-sm-9">
                         <div class="radio-custom radio-default radio-inline">

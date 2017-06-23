@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="{{ url('../vendor/flag-icon-css/flag-icon.css')}}">
 
   <!-- Plugin -->
+  <link rel="stylesheet" href="{{ url('../vendor/raty/jquery.raty.css')}}">
   <!-- <link rel="stylesheet" href="{{ url('../vendor/chartist-js/chartist.css')}}"> -->
   <link rel="stylesheet" href="{{ url('../vendor/aspieprogress/asPieProgress.css')}}">
   <link rel="stylesheet" href="{{ url('../vendor/bootstrap-table/bootstrap-table.css')}}">
@@ -62,6 +63,12 @@
 
   <!-- Inline -->
   <style>
+    .rating-hint {
+      display: inline;
+      margin-left: 10px;
+      vertical-align: sub;
+    }
+
     .bootstrap-select {
       width: 100% !important;
     }
@@ -280,6 +287,7 @@
   <script src="{{ url('../vendor/filament-tablesaw/tablesaw.js')}}"></script>
   <script src="{{ url('../vendor/slidepanel/jquery-slidePanel.js')}}"></script>
   <script src="{{ url('../vendor/aspaginator/jquery.asPaginator.min.js')}}"></script>
+  <script src="{{ url('../vendor/raty/jquery.raty.js')}}"></script>
 
   <!-- Scripts -->
   <script src="{{ url('../js/core.js')}}"></script>
@@ -327,6 +335,7 @@
   <script src="{{ url('../js/components/aspaginator.js')}}"></script>
   <script src="{{ url('../js/apps/app.js')}}"></script>
   <script src="{{ url('../js/apps/contacts.js')}}"></script>
+  <script src="{{ url('../js/components/raty.js')}}"></script>
 
 
   <script>

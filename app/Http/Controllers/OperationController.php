@@ -9,23 +9,29 @@ use App\Data;
 class OperationController extends Controller
 {
     //
-    public function index()
+    public function index($id)
     {
       # code...
-      $kar = Data::all();
+      $kar = Data::findOrFail($id);
 
       return view('work.index', ['kar' => $kar]);
     }
 
-    public function save(Request $r)
+    public function save(Request $r )
     {
       # code...
       $k = new Operation;
+      $id = $r->input('data_id');
+      $d = Data::find($id);
+
+      $d->status = 3;
+
       $k->operations_caddy_id = $r->input('data_id');
       $k->nama_golfer = $r->input('nama');
       $k->tanggal = date('Y-m-d H:i:s');
 
-      $k->save();
-      return redirect('work');
+      $d->save() && $k->save();
+
+      return redirect('/');
     }
 }

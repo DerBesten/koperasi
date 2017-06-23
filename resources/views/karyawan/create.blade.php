@@ -114,13 +114,18 @@
                     <label class="control-label" for="inputBasicKondisi">Status</label>
                     <select class="form-control" name="status">
                       <option></option>
-                      <option value="Sudah Melamar">Sudah Melamar</option>
-                      <option value="Belum Melamar">Belum Melamar</option>
+                      <option value="1">Booking</option>
+                      <option value="2">Non Aktif</option>
                     </select>
                   </div>
                   <div class="form-group form-material">
-                      <label class="control-label" for="inputBasicFirstName">Bio</label>
-                      <textarea class="form-control" name="bio"></textarea>
+                    <label class="control-label" for="inputBasicKondisi">Group</label>
+                    <select class="form-control" name="group">
+                      <option></option>
+                      @foreach($group as $g)
+                      <option value="{{ $g->nama_group }}">{{ $g->nama_group }}</option>
+                      @endforeach
+                    </select>
                   </div>
                   <div class="form-group form-material form-material-file">
                     <label class="control-label" for="inputFile">Foto</label>

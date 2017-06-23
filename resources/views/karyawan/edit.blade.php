@@ -122,13 +122,20 @@
                     <label class="control-label" for="inputBasicKondisi">Status</label>
                     <select class="form-control" name="status">
                       <option></option>
-                      <option value="Sudah Melamar" @if ($kar->status == "Sudah Melamar") selected @endif >Sudah Melamar</option>
-                      <option value="Belum Melamar" @if ($kar->status == "Belum Melamar") selected @endif >Belum Melamar</option>
+                      <option value="1" @if ($kar->status == "1") selected @endif >Active</option>
+                      <option value="2" @if ($kar->status == "2") selected @endif >Not Active</option>
                     </select>
                   </div>
                   <div class="form-group form-material">
-                      <label class="control-label" for="inputBasicFirstName">Bio</label>
-                      <textarea class="form-control" name="bio">{{ $kar->bio }}</textarea>
+                    <label class="control-label" for="inputBasicKondisi">Group</label>
+                    <select class="form-control" name="group">
+                      <option></option>
+                      @foreach($group as $g)
+                      <option value="{{ $g->nama_group }}" @if ($kar->group == $g->nama_group) selected @endif >
+                        {{ $g->nama_group }}
+                      </option>
+                      @endforeach
+                    </select>
                   </div>
                   <div class="form-group form-material form-material-file">
                     <label class="control-label" for="inputFile">Foto</label>

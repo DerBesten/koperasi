@@ -13,17 +13,11 @@
               <div class="example">
                 <form class="form-horizontal" action="{{ url('work/create') }}" method="post" >
                   {{ csrf_field() }}
-                  <input type="hidden" name="data_id" id="caddy_id">
+                  <input type="hidden" name="data_id" id="caddy_id" value="{{ $kar->caddy_id}}">
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Caddy :</label>
                     <div class="col-sm-9">
-                      <select class="form-control select2-hidden-accessible" data-plugin="select2" tabindex="-1" aria-hidden="true"
-                              id="nama_caddy" placeholder="Pilih Nama Caddy" name="nama">
-                        <option></option>
-                        @foreach($kar as $value)
-                        <option>{{ $value->nama}}</option>
-                        @endforeach
-                      </select>
+                      <input type="text" class="form-control" name="" id="" value="{{ $kar->nama}}" disabled>
                     </div>
                   </div>
                   <div class="form-group">

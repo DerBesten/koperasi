@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
@@ -29,8 +27,9 @@ Route::group(['prefix' => 'karyawan'], function() {
   Route::get('detail/{id}', 'DataController@detail');
   Route::post('import', 'DataController@import');
   Route::get('import', 'DataController@upload');
-  Route::get('activate/{id}', 'KategoriController@activate');
-  Route::get('deactivate/{id}', 'KategoriController@deactivate');
+  Route::get('active/{id}', 'DataController@active');
+  Route::get('notactive/{id}', 'DataController@notactive');
+  Route::get('booking/{id}', 'DataController@booking');
 });
 
 Route::group(['prefix' => 'comment'], function() {
@@ -50,7 +49,7 @@ Route::group(['prefix' => 'comment'], function() {
 
 
 Route::group(['prefix' => 'work'], function() {
-  Route::get('/', 'OperationController@index');
+  Route::get('/index/{id}', 'OperationController@index');
   Route::get('create', 'DataController@create');
   Route::post('create', 'OperationController@save');
   Route::get('edit/{id}', 'DataController@edit');
@@ -59,6 +58,30 @@ Route::group(['prefix' => 'work'], function() {
   Route::get('detail/{id}', 'DataController@detail');
   Route::post('import', 'DataController@import');
   Route::get('import', 'DataController@upload');
+  Route::get('activate/{id}', 'KategoriController@activate');
+  Route::get('deactivate/{id}', 'KategoriController@deactivate');
+});
+
+Route::group(['prefix' => 'group'], function() {
+  Route::get('/', 'GroupController@index');
+  Route::get('create', 'GroupController@create');
+  Route::post('create', 'GroupController@save');
+  Route::get('edit/{id}', 'GroupController@edit');
+  Route::post('edit', 'GroupController@update');
+  Route::get('delete/{id}', 'GroupController@delete');
+});
+
+Route::group(['prefix' => 'activasi'], function() {
+  Route::get('/', 'WelcomeController@index');
+  Route::get('create', 'DataController@create');
+  Route::post('create', 'KomentarController@save');
+  Route::get('edit/{id}', 'DataController@edit');
+  Route::post('update', 'WelcomeController@update');
+  Route::get('delete/{id}', 'DataController@delete');
+  Route::get('detail/{id}', 'DataController@detail');
+  Route::post('import', 'DataController@import');
+  Route::get('import', 'DataController@upload');
+  Route::post('/ajax/kode','KomentarController@ajaxKode');
   Route::get('activate/{id}', 'KategoriController@activate');
   Route::get('deactivate/{id}', 'KategoriController@deactivate');
 });

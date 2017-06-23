@@ -104,8 +104,7 @@
               <img src="{{ asset('../'.$kar->photo) }}" alt="...">
             </a>
             <div class="profile-user">{{ $kar->nama}}</div>
-            <div class="profile-job">{{ $kar->pekerjaan }}</div>
-            <div class="profile-job2">{{ $kar->perusahaan }}</div>
+            <div class="profile-job">{{ $kar->group }}</div>
             <p>{{ $kar->bio }}</p>
             <!-- <div class="profile-social">
               <a class="icon bd-twitter" href="javascript:void(0)"></a>
@@ -214,27 +213,51 @@
                         <tbody>
                           <tr>
                             <td>Januari</td>
-                            <td>{{ $jan }}</td>
+                            <td>{{ $jan }} kali</td>
                           </tr>
                           <tr>
                             <td>Februari</td>
-                            <td>{{ $feb }}</td>
+                            <td>{{ $feb }} kali</td>
                           </tr>
                           <tr>
                             <td>Maret</td>
-                            <td>{{ $mar }}</td>
+                            <td>{{ $mar }} kali</td>
                           </tr>
                           <tr>
                             <td>April</td>
-                            <td>{{ $apr }}</td>
+                            <td>{{ $apr }} kali</td>
                           </tr>
                           <tr>
                             <td>Mei</td>
-                            <td>{{ $mei }}</td>
+                            <td>{{ $mei }} kali</td>
                           </tr>
                           <tr>
                             <td>Juni</td>
-                            <td>{{ $jun }}</td>
+                            <td>{{ $jun }} kali</td>
+                          </tr>
+                          <tr>
+                            <td>Juli</td>
+                            <td>{{ $jul }} kali</td>
+                          </tr>
+                          <tr>
+                            <td>Agustus</td>
+                            <td>{{ $agu }} kali</td>
+                          </tr>
+                          <tr>
+                            <td>September</td>
+                            <td>{{ $sep }} kali</td>
+                          </tr>
+                          <tr>
+                            <td>Oktober</td>
+                            <td>{{ $okt }} kali</td>
+                          </tr>
+                          <tr>
+                            <td>November</td>
+                            <td>{{ $nov }} kali</td>
+                          </tr>
+                          <tr>
+                            <td>Desember</td>
+                            <td>{{ $des }} kali</td>
                           </tr>
                         </tbody>
                       </table>
@@ -256,10 +279,10 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($bulanan as $bulan)
+                          @foreach($golf as $g)
                           <tr>
-                            <td>{{ $bulan->nama_golfer }}</td>
-                            <td>{{ $bulan->tanggal}}</td>
+                            <td>{{ $g->nama_golfer }}</td>
+                            <td>{{ $g->tanggal }}</td>
                           </tr>
                           @endforeach
                         </tbody>
