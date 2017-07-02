@@ -196,7 +196,7 @@
                 <li class="list-group-item">
                   <div class="form-group">
 										<label class="col-sm-4 control-label no-padding-right" for="form-field-1" style="font-size: 15px;"> Joined		</label>
-										: {{ $jun }}
+										:
 									</div>
                 </li>
                 <li class="list-group-item">
@@ -279,10 +279,10 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($golf as $g)
+                          @foreach($golf as $g => $value)
                           <tr>
-                            <td>{{ $g->nama_golfer }}</td>
-                            <td>{{ $g->tanggal }}</td>
+                            <td>{{ $value->nama_golfer }}</td>
+                            <td>{{ $value->tanggal }}</td>
                           </tr>
                           @endforeach
                         </tbody>

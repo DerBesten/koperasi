@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Group;
+use Excel;
 
 class GroupController extends Controller
 {
@@ -57,5 +59,35 @@ class GroupController extends Controller
       $gr = Group::find($id)->delete();
 
       return redirect('group');
+    }
+
+    public function upload()
+    {
+      # code...
+      return view('group.import');
+    }
+
+    public function import()
+    {
+      if(Input::hasFile('datab'))
+      {
+        $path = Input::file('datab')->getRealPath();
+        $data = \Excel::load($path, function($reader){
+        })->get();
+        if(!empty($data) && $data->count())
+        {
+          foreach ($data as $key => $value)
+          {
+            $insert[] = ['nama_group' => $value->group,
+                        ];
+          }
+          if(!empty($insert))
+          {
+            \DB::table('groups')->insert($insert);
+
+          }
+        }
+      }
+      return redirect('karyawan');
     }
 }

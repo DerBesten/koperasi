@@ -12,20 +12,29 @@ class WelcomeController extends Controller
     public function index()
     {
       # code...
+      $kar = Data::all();
+
+      return view('welcome',['kar' => $kar]);
+    }
+
+    public function indexGroup()
+    {
+      # code...
       $group = Group::all();
 
-      return view('activasi.index',['group' => $group]);
+      return view('activasi.index', ['group' => $group]);
     }
 
     public function update(Request $r)
     {
       # code...
       $g = $r->input('group');
-      dd($g)
-      $gr = Data::where('group', $g)->first();
-      $gr->status = $r->status;
+      $gr = Data::where('group', $g)->get();
+      foreach ($gr as $key => $value) {
+        $value->status = $r->input('status');
+        $value->save();
+      }
 
-      $gr->save();
 
       return redirect('activasi');
     }

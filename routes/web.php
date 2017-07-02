@@ -69,10 +69,12 @@ Route::group(['prefix' => 'group'], function() {
   Route::get('edit/{id}', 'GroupController@edit');
   Route::post('edit', 'GroupController@update');
   Route::get('delete/{id}', 'GroupController@delete');
+  Route::post('import', 'GroupController@import');
+  Route::get('import', 'GroupController@upload');
 });
 
 Route::group(['prefix' => 'activasi'], function() {
-  Route::get('/', 'WelcomeController@index');
+  Route::get('/', 'WelcomeController@indexGroup');
   Route::get('create', 'DataController@create');
   Route::post('create', 'KomentarController@save');
   Route::get('edit/{id}', 'DataController@edit');

@@ -27,25 +27,28 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label class="col-sm-3 control-label">Question 1  :</label>
+                    <label class="control-label">Is his service satisfactory ?</label>
+                      <div style="padding-left:123px;">
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicMale" name="status" value="1">
+                            <label for="inputBasicMale">Good</label>
+                        </div>
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicMale" name="status" value="0">
+                            <label for="inputBasicMale">Not Bad</label>
+                        </div>
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicFemale" name="status" value="-1">
+                            <label for="inputBasicFemale">Bad</label>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
                     <label class="col-sm-3 control-label">Name of Golfer: </label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" name="nama" placeholder="Name of Golfer" autocomplete="off" />
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Rating Pramu Golf</label>
-                    <div class="col-sm-9">
-                      <div class="example">
-                        <div class="rating" data-plugin="rating" style="cursor: pointer;">
-                          <i data-alt="1" class="icon wb-star" title="bad"></i>&nbsp;
-                          <i data-alt="2" class="icon wb-star" title="poor"></i>&nbsp;
-                          <i data-alt="3" class="icon wb-star" title="regular"></i>&nbsp;
-                          <i data-alt="4" class="icon wb-star" title="good"></i>&nbsp;
-                          <i data-alt="5" class="icon wb-star" title="gorgeous"></i>
-                          <input name="score" type="hidden"></div>
-                </div>
-                    </div>
-                  </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Comment status</label>

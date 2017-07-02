@@ -27,13 +27,12 @@ class DataController extends Controller
     {
       # code...
       // $harian = Carbon::today('Asia/Jakarta');
-      // date_default_timezone_set('Asia/Jakarta');
+      date_default_timezone_set('Asia/Jakarta');
       $tahun = date('Y');
       $bulan = date('m');
       $hari = cal_days_in_month(CAL_GREGORIAN, $bulan,$tahun);
-      // $harian = $tahun.'-'.$bulan.'-'.$hari;
+      $harian = $tahun.'-'.$bulan.'-'.$hari;
 
-      $harian = date('Y-m-d');
       $jan_awal = $tahun.'-'.'01'.'-'.'01'; $jan_akhir = $tahun.'-'.'01'.'-'.$hari;
       $feb_awal = $tahun.'-'.'02'.'-'.'01'; $feb_akhir = $tahun.'-'.'02'.'-'.$hari;
       $mar_awal = $tahun.'-'.'03'.'-'.'01'; $mar_akhir = $tahun.'-'.'03'.'-'.$hari;
