@@ -27,22 +27,22 @@
               <div class="example">
                 <form autocomplete="off" role="form" action="{{ url('karyawan/create')}}" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Nama Lengkap</label>
                       <input type="text" class="form-control" id="inputBasicNamaBarang" name="nama"
                       autocomplete="off" />
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Tempat Lahir</label>
                       <input type="text" class="form-control" id="inputBasicNamaBarang" name="tmpt"
                       autocomplete="off" />
                   </div>
-                  <!-- <div class="form-group form-material">
+                  <!-- <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Umur</label>
                       <input type="text" class="form-control" id="umur" name="age"
                       autocomplete="off" />
                   </div> -->
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                     <label class="control-label" for="inputBasicFirstName">Tanggal Lahir</label>
                     <div class="input-group">
                       <span class="input-group-addon">
@@ -51,7 +51,7 @@
                       <input type="text" class="form-control" id="datepicker" data-plugin="datepicker" name="tgll">
                     </div>
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                     <label class="control-label">Jenis Kelamin</label>
                       <div>
                         <div class="radio-custom radio-default radio-inline">
@@ -64,12 +64,12 @@
                         </div>
                       </div>
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Nomer Telepon / Handphone</label>
                       <input type="text" class="form-control" id="inputBasicNamaBarang" name="tlp"
                       autocomplete="off" />
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                     <label class="control-label" for="inputBasicKondisi">Agama</label>
                     <select class="form-control" name="agama">
                       <option></option>
@@ -80,27 +80,27 @@
                       <option value="Lain-lain">Lain-lain</option>
                     </select>
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Email</label>
                       <input type="text" class="form-control" id="inputBasicNamaBarang" name="email"
                       autocomplete="off" />
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Alamat</label>
                       <input type="text" class="form-control" id="inputBasicNamaBarang" name="alamat"
                       autocomplete="off" />
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Pekerjaan / Jabatan</label>
                       <input type="text" class="form-control" id="inputBasicNamaBarang" name="pekerjaan"
                       autocomplete="off" />
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                       <label class="control-label" for="inputBasicFirstName">Perusahaan</label>
                       <input type="text" class="form-control" id="inputBasicNamaBarang" name="perusahaan"
                       autocomplete="off" />
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                     <label class="control-label" for="inputBasicKondisi">Status Perkawinan</label>
                     <select class="form-control" name="statusp">
                       <option></option>
@@ -110,7 +110,7 @@
                       <option value="Janda">Janda</option>
                     </select>
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                     <label class="control-label" for="inputBasicKondisi">Status</label>
                     <select class="form-control" name="status">
                       <option></option>
@@ -118,7 +118,7 @@
                       <option value="2">Non Aktif</option>
                     </select>
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                     <label class="control-label" for="inputBasicKondisi">Group</label>
                     <select class="form-control" name="group">
                       <option></option>
@@ -127,7 +127,7 @@
                       @endforeach
                     </select>
                   </div>
-                  <div class="form-group form-material form-material-file">
+                  <div class="form-group  -file">
                     <label class="control-label" for="inputFile">Foto</label>
                     <input type="text" class="form-control" readonly="">
                     <input type="file" id="inputFile" name="photo" multiple="">
@@ -137,7 +137,7 @@
                         </span>
                     @endif
                   </div>
-                  <div class="form-group form-material">
+                  <div class="form-group ">
                     <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
                 </form>
