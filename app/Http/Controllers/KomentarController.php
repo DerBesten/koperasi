@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Komentar;
 use App\Data;
+use App\Operation;
 
 class KomentarController extends Controller
 {
     public function index()
     {
       # code...
-      $karyawan = Data::all();
+      $karyawan = Data::where('status', '3')->get();
       return view('comment.index', ['data' => $karyawan]);
     }
 
@@ -26,11 +27,14 @@ class KomentarController extends Controller
     public function save(Request $r)
     {
       # code...
+      $id = $r->input('data_id');
       $comment = new Komentar;
+      $rating = Data::find($id);
       $comment->komentar_caddy_id = $r->input('data_id');
       $comment->komentar_nama = $r->input('nama');
       $comment->komentar_isi = $r->input('isi');
       $comment->komentar_status = $r->input('status');
+      $rating->rating = $rating->rating + $r->input('rating') /
       $comment->komentar_tglinput = date('Y-m-d H:i:s');
       $comment->save();
 
@@ -43,4 +47,6 @@ class KomentarController extends Controller
 
       return redirect(url('comments'));
     }
+
+
 }

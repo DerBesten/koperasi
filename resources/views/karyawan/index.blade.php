@@ -36,6 +36,7 @@
                   </thead>
                   <tbody>
                     @foreach($karyawan as $key => $kar)
+                    @if($kar->status == 1 || $kar->status == 4)
                     <tr>
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $kar->nama}}</td>
@@ -68,6 +69,14 @@
                             <li role="presentation"><a href="{{ url('karyawan/active/'.$kar->caddy_id) }}" role="menuitem">Active</a></li>
                             <li role="presentation"><a href="{{ url('karyawan/notactive/'.$kar->caddy_id) }}" role="menuitem">Not Active</a></li>
                           </ul>
+                          @elseif($kar->status === "4")
+                          <button type="button" class="btn btn-primary dropdown-toggle" id="exampleColorDropdown5" data-toggle="dropdown" aria-expanded="false">StandBy
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
+                            <li role="presentation"><a href="{{ url('karyawan/active/'.$kar->caddy_id) }}" role="menuitem">Active</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/notactive/'.$kar->caddy_id) }}" role="menuitem">Not Active</a></li>
+                          </ul>
                           @endif
                         </div>
                       </td>
@@ -89,6 +98,7 @@
                         </a>
                       </td>
                     </tr>
+                    @endif
                     @endforeach
                   </tbody>
                 </table>

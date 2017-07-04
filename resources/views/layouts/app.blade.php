@@ -359,19 +359,6 @@
         Site.run();
       });
 
-      $("#nama_caddy").change(function(){
-        $.ajax({
-          'type': 'POST',
-          'url': '/comment/ajax/kode',
-          'data': { nama: $(this).val(), _token : '{{ csrf_token() }}' },
-          success: function(data) {
-            $("#caddy_id").val(data.caddy_id);
-          },
-          error: function (jqHRX, textStatus, errorThrow){
-            alert(errorThrow);
-          }
-        });
-      });
 
       $(function(){
         $("#datepicker").datepicker();

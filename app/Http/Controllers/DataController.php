@@ -18,7 +18,7 @@ class DataController extends Controller
     public function index()
     {
       # code...
-      $karyawan = Data::orderBy('nama', 'asc')->paginate(999);
+      $karyawan = Data::orderBy('status', 'asc')->orderBy('group', 'asc')->paginate(999);
 
       return view('karyawan.index', ['karyawan' => $karyawan]);
     }
@@ -50,7 +50,8 @@ class DataController extends Controller
 
       $comment = Komentar::whereKomentarCaddyId($kar->caddy_id)->get();
 
-      $golfer = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal',$harian)->get();
+      $golf = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal','=',$harian)->get();
+
 
       $jan = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal','>=',$jan_awal)->where('tanggal','<=',$jan_akhir)->count();
       $feb = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal','>=',$feb_awal)->where('tanggal','<=',$feb_akhir)->count();
@@ -71,7 +72,7 @@ class DataController extends Controller
       //   ->values($kar->pluck('performance'))
       //   ->responsive(false);
 
-      return view('karyawan.detail', ['kar' => $kar, 'komentar' => $comment,'golf' => $golfer,'jan' => $jan,
+      return view('karyawan.detail', ['kar' => $kar, 'komentar' => $comment,'golf' => $golf,'jan' => $jan,
                   'feb' => $feb, 'mar' => $mar, 'apr' => $apr, 'mei' => $mei, 'jun' => $jun, 'jul' => $jul, 'agu' => $agu,
                   'sep' => $sep, 'okt' => $okt, 'nov' => $nov, 'des' => $des]);
     }

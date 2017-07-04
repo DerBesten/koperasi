@@ -33,6 +33,7 @@ class CreateDataTable extends Migration
             $table->string('status');
             $table->string('performance')->nullable();
             $table->string('group')->nullable();
+            $table->string('rating')->nullable();
             $table->timestamps();
         });
     }

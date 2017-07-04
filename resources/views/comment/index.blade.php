@@ -9,7 +9,7 @@
           <div class="col-sm-12 col-md-6">
           <!-- Example Horizontal Form -->
             <div class="example-wrap">
-              <h4 class="example-title">Comments</h4>
+              <h4 class="example-title">Comments and Rating</h4>
               <div class="example">
                 <form class="form-horizontal" action="{{ url('comment/create') }}" method="post" >
                   {{ csrf_field() }}
@@ -27,27 +27,9 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Question 1  :</label>
-                    <label class="control-label">Is his service satisfactory ?</label>
-                      <div style="padding-left:123px;">
-                        <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicMale" name="status" value="1">
-                            <label for="inputBasicMale">Good</label>
-                        </div>
-                        <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicMale" name="status" value="0">
-                            <label for="inputBasicMale">Not Bad</label>
-                        </div>
-                        <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicFemale" name="status" value="-1">
-                            <label for="inputBasicFemale">Bad</label>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
                     <label class="col-sm-3 control-label">Name of Golfer: </label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="nama" placeholder="Name of Golfer" autocomplete="off" />
+                      <input type="text" class="form-control" id="golfer" name="nama" placeholder="Name of Golfer" autocomplete="off" />
                     </div>
                   </div>
                   <div class="form-group">
@@ -60,6 +42,33 @@
                         <div class="radio-custom radio-default radio-inline">
                           <input type="radio" id="inputBasicFemale" name="status" value="Bad">
                             <label for="inputBasicFemale">Bad</label>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Rating PramuGolf</label>
+                  </div>
+                  <div class="form-group" style="width:1000px; padding-left:120px">
+                      <div class="col-sm-9">
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicMale" name="rating" value="10">
+                            <label for="inputBasicMale">Wow</label>
+                        </div>
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="9">
+                            <label for="inputBasicFemale">Excellent</label>
+                        </div>
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="7">
+                            <label for="inputBasicFemale">Good</label>
+                        </div>
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="5">
+                            <label for="inputBasicFemale">Average</label>
+                        </div>
+                        <div class="radio-custom radio-default radio-inline">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="-5">
+                            <label for="inputBasicFemale">Poor</label>
                         </div>
                       </div>
                   </div>
