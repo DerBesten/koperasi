@@ -186,9 +186,21 @@
           <ul class="site-menu">
             <li class="site-menu-category">Data Karyawan</li>
             <li class="site-menu-item">
+              <a class="animsition-link" href="{{ url('karyawan/datakar')}}" data-slug="angular">
+                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                <span class="site-menu-title">PramuGolf(All)</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
               <a class="animsition-link" href="{{ url('karyawan')}}" data-slug="angular">
                 <i class="site-menu-icon wb-user" aria-hidden="true"></i>
-                <span class="site-menu-title">Karyawan</span>
+                <span class="site-menu-title">PramuGolf (Active and StandBy)</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="{{ url('karyawan')}}" data-slug="angular">
+                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                <span class="site-menu-title">PramuGolf (Booking)</span>
               </a>
             </li>
           </ul>
@@ -359,6 +371,19 @@
         Site.run();
       });
 
+      $("#nama_caddy").change(function(){
+        $.ajax({
+          'type': 'POST',
+          'url': '/comment/ajax/kode',
+          'data': { nama: $(this).val(), _token : '{{ csrf_token() }}' },
+          success: function(data) {
+            $("#caddy_id").val(data.caddy_id);
+          },
+          error: function (jqHRX, textStatus, errorThrow){
+            alert(errorThrow);
+          }
+        });
+      });
 
       $(function(){
         $("#datepicker").datepicker();

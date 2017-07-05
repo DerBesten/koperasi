@@ -36,7 +36,6 @@
                   </thead>
                   <tbody>
                     @foreach($karyawan as $key => $kar)
-                    @if($kar->status == 1 || $kar->status == 4 || $kar->status == 3)
                     <tr>
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $kar->nama}}</td>
@@ -51,6 +50,7 @@
                           </button>
                           <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
                             <li role="presentation"><a href="{{ url('karyawan/booking/'.$kar->caddy_id) }}" role="menuitem">Booking</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/standby/'.$kar->caddy_id) }}" role="menuitem">StandBy</a></li>
                             <li role="presentation"><a href="{{ url('karyawan/notactive/'.$kar->caddy_id) }}" role="menuitem">Not Active</a></li>
                           </ul>
                           @elseif($kar->status === "2")
@@ -60,6 +60,7 @@
                           <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
                             <li role="presentation"><a href="{{ url('karyawan/active/'.$kar->caddy_id) }}" role="menuitem">Active</a></li>
                             <li role="presentation"><a href="{{ url('karyawan/booking/'.$kar->caddy_id) }}" role="menuitem">Booking</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/standby/'.$kar->caddy_id) }}" role="menuitem">StandBy</a></li>
                           </ul>
                           @elseif($kar->status === "3")
                           <button type="button" class="btn btn-info dropdown-toggle" id="exampleColorDropdown5" data-toggle="dropdown" aria-expanded="false">Booking
@@ -67,6 +68,7 @@
                           </button>
                           <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
                             <li role="presentation"><a href="{{ url('karyawan/active/'.$kar->caddy_id) }}" role="menuitem">Active</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/standby/'.$kar->caddy_id) }}" role="menuitem">StandBy</a></li>
                             <li role="presentation"><a href="{{ url('karyawan/notactive/'.$kar->caddy_id) }}" role="menuitem">Not Active</a></li>
                           </ul>
                           @elseif($kar->status === "4")
@@ -75,6 +77,7 @@
                           </button>
                           <ul class="dropdown-menu dropdown-menu-warning" aria-labelledby="exampleColorDropdown5" role="menu">
                             <li role="presentation"><a href="{{ url('karyawan/active/'.$kar->caddy_id) }}" role="menuitem">Active</a></li>
+                            <li role="presentation"><a href="{{ url('karyawan/booking/'.$kar->caddy_id) }}" role="menuitem">Booking</a></li>
                             <li role="presentation"><a href="{{ url('karyawan/notactive/'.$kar->caddy_id) }}" role="menuitem">Not Active</a></li>
                           </ul>
                           @endif
@@ -98,7 +101,6 @@
                         </a>
                       </td>
                     </tr>
-                    @endif
                     @endforeach
                   </tbody>
                 </table>

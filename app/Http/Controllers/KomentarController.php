@@ -27,16 +27,26 @@ class KomentarController extends Controller
     public function save(Request $r)
     {
       # code...
-      $id = $r->input('data_id');
+      date_default_timezone_set('Asia/Jakarta');
+      $tahun = date('Y');
+      $bulan = date('m');
+      $hari = cal_days_in_month(CAL_GREGORIAN, $bulan,$tahun);
+      $tglr_awal = $tahun.'-'.$bulan.'-'.'01'; $tglr_akhir = $tahun.'-'.$bulan.'-'.'31';
+
       $comment = new Komentar;
-      $rating = Data::find($id);
+      $id = $r->input('data_id');
+      $d = Data::find($id);
+      $count = Operation::whereOperationsCaddyId($d->caddy_id)->where('tanggal','>=',$tglr_awal)->where('tanggal','<=',$tglr_akhir)->count();
+
+      $d->status = 2;
+      $d->rating = $d->rating + $r->input('rating') / $count;
       $comment->komentar_caddy_id = $r->input('data_id');
       $comment->komentar_nama = $r->input('nama');
       $comment->komentar_isi = $r->input('isi');
       $comment->komentar_status = $r->input('status');
-      $rating->rating = $rating->rating + $r->input('rating') /
       $comment->komentar_tglinput = date('Y-m-d H:i:s');
-      $comment->save();
+
+      $comment->save() && $d->save();
 
       return redirect('comment');
     }

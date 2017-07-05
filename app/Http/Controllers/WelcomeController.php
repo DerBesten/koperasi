@@ -13,8 +13,14 @@ class WelcomeController extends Controller
     {
       # code...
       $kar = Data::all();
+      $count = 0;
+      foreach ($kar as $key => $value) {
+        if ($value->status == 1) {
+          $count += 1;
+        }
+      }
 
-      return view('welcome',['kar' => $kar]);
+      return view('welcome',['kar' => $kar, 'count' => $count]);
     }
 
     public function indexGroup()

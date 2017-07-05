@@ -19,6 +19,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'karyawan'], function() {
   Route::get('/', 'DataController@index');
+  Route::get('datakar', 'DataController@karyawan');
   Route::get('create', 'DataController@create');
   Route::post('create', 'DataController@save');
   Route::get('edit/{id}', 'DataController@edit');
@@ -30,6 +31,7 @@ Route::group(['prefix' => 'karyawan'], function() {
   Route::get('active/{id}', 'DataController@active');
   Route::get('notactive/{id}', 'DataController@notactive');
   Route::get('booking/{id}', 'DataController@booking');
+  Route::get('standby/{id}', 'DataController@standby');
 });
 
 Route::group(['prefix' => 'comment'], function() {

@@ -98,7 +98,19 @@
               <img src="{{ url('../'.$k->photo) }}" alt="..." style="height:100px; width:100px">
             </a>
             <div class="profile-user">{{ $k->nama}}</div>
-            <p><h5>Grade  : </h5></p>
+            <p>
+              @if($k->rating >= 9)
+              <h5>Grade  : A</h5>
+              @elseif($k->rating >= 7)
+              <h5>Grade  : B</h5>
+              @elseif($k->rating >= 6)
+              <h5>Grade  : C</h5>
+              @elseif($k->rating >= 4)
+              <h5>Grade  : D</h5>
+              @else
+              <h5>Grade  : E</h5>
+              @endif
+            </p>
           </div>
         </div>
         <div class="widget-footer">
@@ -129,15 +141,33 @@
               <img src="{{ url('../'.$k->photo) }}" alt="..." style="height:100px; width:100px">
             </a>
             <div class="profile-user">{{ $k->nama}}</div>
-            <p><h5>Grade  : </h5></p>
+            <p>
+              @if($k->rating >= 9)
+              <h5>Grade  : A</h5>
+              @elseif($k->rating >= 7)
+              <h5>Grade  : B</h5>
+              @elseif($k->rating >= 6)
+              <h5>Grade  : C</h5>
+              @elseif($k->rating >= 4)
+              <h5>Grade  : D</h5>
+              @else
+              <h5>Grade  : E</h5>
+              @endif
+            </p>
           </div>
         </div>
         <div class="widget-footer">
           <div class="row no-space">
             <div class="col-xs-4">
+              @if($count)
+              <button type="button" class="btn btn-primary btn-round btn-default" style="margin-left:55px">
+                <i class="icon wb-check" aria-hidden="true" ></i> StandBy
+              </button>
+              @else
               <a href="{{ url('/work/index/'.$k->caddy_id) }}"><button type="button" class="btn btn-primary btn-round btn-default" style="margin-left:55px">
                 <i class="icon wb-check" aria-hidden="true"></i> StandBy
               </button></a>
+              @endif
             </div>
           </div>
         </div>

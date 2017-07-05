@@ -18,9 +18,17 @@ class DataController extends Controller
     public function index()
     {
       # code...
-      $karyawan = Data::orderBy('status', 'asc')->orderBy('group', 'asc')->paginate(999);
+      $karyawan = Data::orderBy('status', 'asc')->orderBy('group', 'asc')->orderBy('nama', 'asc')->paginate(999);
 
       return view('karyawan.index', ['karyawan' => $karyawan]);
+    }
+
+    public function karyawan()
+    {
+      # code...
+      $karyawan = Data::orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
+
+      return view('karyawan.datakar', ['karyawan' => $karyawan]);
     }
 
     public function detail($id)
@@ -33,24 +41,24 @@ class DataController extends Controller
       $hari = cal_days_in_month(CAL_GREGORIAN, $bulan,$tahun);
       $harian = $tahun.'-'.$bulan.'-'.$hari;
 
-      $jan_awal = $tahun.'-'.'01'.'-'.'01'; $jan_akhir = $tahun.'-'.'01'.'-'.$hari;
-      $feb_awal = $tahun.'-'.'02'.'-'.'01'; $feb_akhir = $tahun.'-'.'02'.'-'.$hari;
-      $mar_awal = $tahun.'-'.'03'.'-'.'01'; $mar_akhir = $tahun.'-'.'03'.'-'.$hari;
-      $apr_awal = $tahun.'-'.'04'.'-'.'01'; $apr_akhir = $tahun.'-'.'04'.'-'.$hari;
-      $mei_awal = $tahun.'-'.'05'.'-'.'01'; $mei_akhir = $tahun.'-'.'05'.'-'.$hari;
-      $jun_awal = $tahun.'-'.'06'.'-'.'01'; $jun_akhir = $tahun.'-'.'06'.'-'.$hari;
-      $jul_awal = $tahun.'-'.'07'.'-'.'01'; $jul_akhir = $tahun.'-'.'07'.'-'.$hari;
-      $agu_awal = $tahun.'-'.'08'.'-'.'01'; $agu_akhir = $tahun.'-'.'08'.'-'.$hari;
-      $sep_awal = $tahun.'-'.'09'.'-'.'01'; $sep_akhir = $tahun.'-'.'09'.'-'.$hari;
-      $okt_awal = $tahun.'-'.'10'.'-'.'01'; $okt_akhir = $tahun.'-'.'10'.'-'.$hari;
-      $nov_awal = $tahun.'-'.'11'.'-'.'01'; $nov_akhir = $tahun.'-'.'11'.'-'.$hari;
-      $des_awal = $tahun.'-'.'12'.'-'.'01'; $des_akhir = $tahun.'-'.'12'.'-'.$hari;
+      $jan_awal = $tahun.'-'.'01'.'-'.'01'; $jan_akhir = $tahun.'-'.'01'.'-'.'31';
+      $feb_awal = $tahun.'-'.'02'.'-'.'01'; $feb_akhir = $tahun.'-'.'02'.'-'.'29';
+      $mar_awal = $tahun.'-'.'03'.'-'.'01'; $mar_akhir = $tahun.'-'.'03'.'-'.'31';
+      $apr_awal = $tahun.'-'.'04'.'-'.'01'; $apr_akhir = $tahun.'-'.'04'.'-'.'31';
+      $mei_awal = $tahun.'-'.'05'.'-'.'01'; $mei_akhir = $tahun.'-'.'05'.'-'.'31';
+      $jun_awal = $tahun.'-'.'06'.'-'.'01'; $jun_akhir = $tahun.'-'.'06'.'-'.'31';
+      $jul_awal = $tahun.'-'.'07'.'-'.'01'; $jul_akhir = $tahun.'-'.'07'.'-'.'31';
+      $agu_awal = $tahun.'-'.'08'.'-'.'01'; $agu_akhir = $tahun.'-'.'08'.'-'.'31';
+      $sep_awal = $tahun.'-'.'09'.'-'.'01'; $sep_akhir = $tahun.'-'.'09'.'-'.'31';
+      $okt_awal = $tahun.'-'.'10'.'-'.'01'; $okt_akhir = $tahun.'-'.'10'.'-'.'31';
+      $nov_awal = $tahun.'-'.'11'.'-'.'01'; $nov_akhir = $tahun.'-'.'11'.'-'.'31';
+      $des_awal = $tahun.'-'.'12'.'-'.'01'; $des_akhir = $tahun.'-'.'12'.'-'.'31';
 
       $kar = Data::findOrFail($id);
 
       $comment = Komentar::whereKomentarCaddyId($kar->caddy_id)->get();
 
-      $golf = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal','=',$harian)->get();
+      $golf = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal',$harian)->get();
 
 
       $jan = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal','>=',$jan_awal)->where('tanggal','<=',$jan_akhir)->count();
@@ -102,6 +110,7 @@ class DataController extends Controller
         $d->group = $req->group;
         $d->status_perkawinan = $req->statusp;
         $d->status = $req->status;
+        $d->rating = $req->rating;
         // $this->validate($req, [
         //     'photo' => 'required|image', 'mimes:jpg,jpeg,JPEG,png,gif,bmp', 'max:2024',
         //     ]);
@@ -112,7 +121,7 @@ class DataController extends Controller
 
         $d->save();
 
-      return redirect('karyawan');
+      return redirect('karyawan/datakar');
     }
 
     public function edit($id)
@@ -143,6 +152,7 @@ class DataController extends Controller
       $k->group = $r->group;
       $k->status_perkawinan = $r->statusp;
       $k->status = $r->status;
+      $k->rating = $r->rating;
       if($r->file('photo') == "")
       {
         $k->photo = $k->photo;
@@ -161,7 +171,7 @@ class DataController extends Controller
 
       $k->save();
 
-      return redirect('karyawan');
+      return redirect('karyawan/datakar');
     }
 
     public function delete($id)
@@ -171,7 +181,7 @@ class DataController extends Controller
 
       $k->delete();
 
-      return redirect('karyawan');
+      return redirect('karyawan/datakar');
     }
 
     public function upload()
@@ -213,7 +223,7 @@ class DataController extends Controller
           }
         }
       }
-      return redirect('karyawan');
+      return redirect('karyawan/datakar');
     }
 
     public function active($id)
@@ -222,7 +232,7 @@ class DataController extends Controller
       $da->status = 1;
       $da->save();
 
-      return redirect(url('karyawan'));
+      return redirect(url('karyawan/datakar'));
     }
 
     public function notactive($id)
@@ -231,7 +241,7 @@ class DataController extends Controller
       $da->status = 2;
       $da->save();
 
-      return redirect(url('karyawan'));
+      return redirect(url('karyawan/datakar'));
     }
 
     public function booking($id)
@@ -240,6 +250,15 @@ class DataController extends Controller
       $da->status = 3;
       $da->save();
 
-      return redirect(url('karyawan'));
+      return redirect(url('karyawan/datakar'));
+    }
+
+    public function standby($id)
+    {
+      $da = Data::find($id);
+      $da->status = 4;
+      $da->save();
+
+      return redirect(url('karyawan/datakar'));
     }
 }
