@@ -13,7 +13,7 @@
   <div class="page-content">
     <div class="panel">
       <div class="panel-heading">
-        <h3 class="panel-title">Import Data Master Barang</h3>
+        <h3 class="panel-title">Import Data PramuGolf</h3>
       </div>
       <div class="panel-body container-fluid">
         <form autocomplete="off" class="form-horizontal" role="form" action="{{ url('karyawan/import')}}" method="post" enctype="multipart/form-data">

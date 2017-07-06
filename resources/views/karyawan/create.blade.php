@@ -10,14 +10,14 @@
         </a>
         <a class="btn btn-sm btn-default btn-outline btn-round" href="{{ url('karyawan/import')}}" >
           <i class="icon fa-upload" aria-hidden="true"></i>
-          <span class="hidden-xs">Import Pengadaan</span>
+          <span class="hidden-xs">Import Data PramuGolf</span>
         </a>
       </div>
   </div>
   <div class="page-content">
     <div class="panel">
       <div class="panel-heading">
-        <h3 class="panel-title">Isi Pengadaan Manual</h3>
+        <h3 class="panel-title">Isi Data PramuGolf Manual</h3>
       </div>
       <div class="panel-body container-fluid">
         <div class="row row-lg">

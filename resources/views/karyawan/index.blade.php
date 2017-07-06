@@ -5,7 +5,7 @@
   <div class="page-content">
     <div class="panel">
       <div class="panel-heading">
-        <h3 class="panel-title">Data Opname Barang</h3>
+        <h3 class="panel-title">Data PramuGolf</h3>
       </div>
       <div class="panel-body">
         <div class="row row-lg">
@@ -26,7 +26,7 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Karyawan</th>
+                      <th>Nama PramuGolf</th>
                       <th>Nomor Handphone</th>
                       <th>Email</th>
                       <th>Group</th>

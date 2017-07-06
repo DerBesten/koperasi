@@ -20,6 +20,7 @@ class OperationController extends Controller
     public function save(Request $r )
     {
       # code...
+      date_default_timezone_set('Asia/Jakarta');
       $k = new Operation;
       $id = $r->input('data_id');
       $d = Data::find($id);

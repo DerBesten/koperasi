@@ -20,6 +20,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['prefix' => 'karyawan'], function() {
   Route::get('/', 'DataController@index');
   Route::get('datakar', 'DataController@karyawan');
+  Route::get('databoo', 'DataController@karyawanb');
   Route::get('create', 'DataController@create');
   Route::post('create', 'DataController@save');
   Route::get('edit/{id}', 'DataController@edit');

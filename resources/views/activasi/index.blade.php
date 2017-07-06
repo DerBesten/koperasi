@@ -8,16 +8,12 @@
           <i class="icon wb-arrow-left" aria-hidden="true"></i>
           <span class="hidden-xs">Kembali</span>
         </a>
-        <a class="btn btn-sm btn-default btn-outline btn-round" href="{{ url('karyawan/import')}}" >
-          <i class="icon fa-upload" aria-hidden="true"></i>
-          <span class="hidden-xs">Import Pengadaan</span>
-        </a>
       </div>
   </div>
   <div class="page-content">
     <div class="panel">
       <div class="panel-heading">
-        <h3 class="panel-title">Isi Pengadaan Manual</h3>
+        <h3 class="panel-title">Activasi Group</h3>
       </div>
       <div class="panel-body container-fluid">
         <div class="row row-lg">

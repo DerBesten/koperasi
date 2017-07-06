@@ -26,7 +26,15 @@ class DataController extends Controller
     public function karyawan()
     {
       # code...
-      $karyawan = Data::where('status', 1)->orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
+      $karyawan = Data::where('status', 1)->orderBy('group', 'asc')->orderBy('updated_at', 'asc')->paginate(999);
+
+      return view('karyawan.datakar', ['karyawan' => $karyawan]);
+    }
+
+    public function karyawanb()
+    {
+      # code...
+      $karyawan = Data::where('status', 3)->orderBy('group', 'asc')->orderBy('updated_at', 'asc')->paginate(999);
 
       return view('karyawan.datakar', ['karyawan' => $karyawan]);
     }
