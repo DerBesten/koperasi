@@ -88,6 +88,6 @@ class GroupController extends Controller
           }
         }
       }
-      return redirect('karyawan');
+      return redirect('karyawan/datakar');
     }
 }

@@ -36,7 +36,6 @@
                   </thead>
                   <tbody>
                     @foreach($karyawan as $key => $kar)
-                    @if($kar->status == 1 || $kar->status == 4 || $kar->status == 3)
                     <tr>
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $kar->nama}}</td>
@@ -98,7 +97,6 @@
                         </a>
                       </td>
                     </tr>
-                    @endif
                     @endforeach
                   </tbody>
                 </table>

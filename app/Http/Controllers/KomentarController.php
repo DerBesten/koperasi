@@ -36,10 +36,11 @@ class KomentarController extends Controller
       $comment = new Komentar;
       $id = $r->input('data_id');
       $d = Data::find($id);
-      $count = Operation::whereOperationsCaddyId($d->caddy_id)->where('tanggal','>=',$tglr_awal)->where('tanggal','<=',$tglr_akhir)->count();
 
       $d->status = 2;
-      $d->rating = $d->rating + $r->input('rating') / $count;
+      $c = round(($d->rating + $r->input('rating')) / 2, 1);
+      $d->rating = $c;
+
       $comment->komentar_caddy_id = $r->input('data_id');
       $comment->komentar_nama = $r->input('nama');
       $comment->komentar_isi = $r->input('isi');

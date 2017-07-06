@@ -18,7 +18,7 @@ class DataController extends Controller
     public function index()
     {
       # code...
-      $karyawan = Data::orderBy('status', 'asc')->orderBy('group', 'asc')->orderBy('nama', 'asc')->paginate(999);
+      $karyawan = Data::orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
 
       return view('karyawan.index', ['karyawan' => $karyawan]);
     }
@@ -26,7 +26,7 @@ class DataController extends Controller
     public function karyawan()
     {
       # code...
-      $karyawan = Data::orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
+      $karyawan = Data::where('status', 1)->orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
 
       return view('karyawan.datakar', ['karyawan' => $karyawan]);
     }
@@ -38,8 +38,9 @@ class DataController extends Controller
       date_default_timezone_set('Asia/Jakarta');
       $tahun = date('Y');
       $bulan = date('m');
+      $har = date('d');
       $hari = cal_days_in_month(CAL_GREGORIAN, $bulan,$tahun);
-      $harian = $tahun.'-'.$bulan.'-'.$hari;
+      $harian = $tahun.'-'.$bulan.'-'.$har;
 
       $jan_awal = $tahun.'-'.'01'.'-'.'01'; $jan_akhir = $tahun.'-'.'01'.'-'.'31';
       $feb_awal = $tahun.'-'.'02'.'-'.'01'; $feb_akhir = $tahun.'-'.'02'.'-'.'29';
@@ -56,9 +57,9 @@ class DataController extends Controller
 
       $kar = Data::findOrFail($id);
 
-      $comment = Komentar::whereKomentarCaddyId($kar->caddy_id)->get();
+      $comment = Komentar::whereKomentarCaddyId($kar->caddy_id)->orderby('komentar_tglinput', 'desc')->get();
 
-      $golf = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal',$harian)->get();
+      $golf = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal',$harian)->orderby('created_at', 'desc')->get();
 
 
       $jan = Operation::whereOperationsCaddyId($kar->caddy_id)->where('tanggal','>=',$jan_awal)->where('tanggal','<=',$jan_akhir)->count();
@@ -93,6 +94,7 @@ class DataController extends Controller
     }
     public function save(Request $req)
     {
+      date_default_timezone_set('Asia/Jakarta');
         $gambar = $req->file('photo')->getClientOriginalName();
         $filename = $req->file('photo')->move('portraits', $gambar);
         # code...
@@ -110,7 +112,6 @@ class DataController extends Controller
         $d->group = $req->group;
         $d->status_perkawinan = $req->statusp;
         $d->status = $req->status;
-        $d->rating = $req->rating;
         // $this->validate($req, [
         //     'photo' => 'required|image', 'mimes:jpg,jpeg,JPEG,png,gif,bmp', 'max:2024',
         //     ]);
@@ -136,6 +137,7 @@ class DataController extends Controller
     public function update(Request $r)
     {
       # code...
+      date_default_timezone_set('Asia/Jakarta');
       $id = $r->input('id');
       $k = Data::findOrFail($id);
       $k->nama = $r->nama;
@@ -152,7 +154,6 @@ class DataController extends Controller
       $k->group = $r->group;
       $k->status_perkawinan = $r->statusp;
       $k->status = $r->status;
-      $k->rating = $r->rating;
       if($r->file('photo') == "")
       {
         $k->photo = $k->photo;
@@ -177,6 +178,7 @@ class DataController extends Controller
     public function delete($id)
     {
       # code...
+      date_default_timezone_set('Asia/Jakarta');
       $k = Data::findOrFail($id);
 
       $k->delete();
@@ -192,6 +194,7 @@ class DataController extends Controller
 
     public function import()
     {
+      date_default_timezone_set('Asia/Jakarta');
       if(Input::hasFile('datab'))
       {
         $path = Input::file('datab')->getRealPath();
@@ -228,6 +231,7 @@ class DataController extends Controller
 
     public function active($id)
     {
+      date_default_timezone_set('Asia/Jakarta');
       $da = Data::find($id);
       $da->status = 1;
       $da->save();
@@ -237,6 +241,7 @@ class DataController extends Controller
 
     public function notactive($id)
     {
+      date_default_timezone_set('Asia/Jakarta');
       $da = Data::find($id);
       $da->status = 2;
       $da->save();
@@ -246,6 +251,7 @@ class DataController extends Controller
 
     public function booking($id)
     {
+      date_default_timezone_set('Asia/Jakarta');
       $da = Data::find($id);
       $da->status = 3;
       $da->save();
@@ -255,6 +261,7 @@ class DataController extends Controller
 
     public function standby($id)
     {
+      date_default_timezone_set('Asia/Jakarta');
       $da = Data::find($id);
       $da->status = 4;
       $da->save();

@@ -21,7 +21,7 @@
 }
 .profile-job {
   margin-bottom: 0px;
-  color: #a3afb7;
+  color: #263238;
 }
 .profile-job2 {
   margin-bottom: 20px;
@@ -105,7 +105,19 @@
             </a>
             <div class="profile-user">{{ $kar->nama}}</div>
             <div class="profile-job">{{ $kar->group }}</div>
-            <p>{{ $kar->bio }}</p>
+            <p>
+              @if($kar->rating >= 4.5)
+              <h4>Grade  : A</h4>
+              @elseif($kar->rating >= 3.5)
+              <h4>Grade  : B</h4>
+              @elseif($kar->rating >= 2.5)
+              <h4>Grade  : C</h4>
+              @elseif($kar->rating >= 1.5)
+              <h4>Grade  : D</h4>
+              @else
+              <h4>Grade  : E</h4>
+              @endif
+            </p>
             <!-- <div class="profile-social">
               <a class="icon bd-twitter" href="javascript:void(0)"></a>
               <a class="icon bd-facebook" href="javascript:void(0)"></a>
@@ -302,9 +314,15 @@
                         <tr>
                           <td class="pre-cell"></td>
                           <td class="cell-60 responsive-hide">
+                            @if($value->komentar_status == "Good")
                             <a class="avatar" href="javascript:void(0)">
-                              <span class="icon wb-user" style="font-size: 34px;"></span>
+                              <span class="icon wb-user" style="font-size: 34px; color:blue"></span>
                             </a>
+                            @elseif($value->komentar_status == "Bad")
+                            <a class="avatar" href="javascript:void(0)">
+                              <span class="icon wb-user" style="font-size: 34px; color:red"></span>
+                            </a>
+                            @endif
                           </td>
                           <td>
                             <div class="content">

@@ -51,23 +51,23 @@
                   <div class="form-group" style="width:1000px; padding-left:120px">
                       <div class="col-sm-9">
                         <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicMale" name="rating" value="10">
+                          <input type="radio" id="inputBasicMale" name="rating" value="5">
                             <label for="inputBasicMale">Wow</label>
                         </div>
                         <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicFemale" name="rating" value="9">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="4">
                             <label for="inputBasicFemale">Excellent</label>
                         </div>
                         <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicFemale" name="rating" value="7">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="3">
                             <label for="inputBasicFemale">Good</label>
                         </div>
                         <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicFemale" name="rating" value="5">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="2">
                             <label for="inputBasicFemale">Average</label>
                         </div>
                         <div class="radio-custom radio-default radio-inline">
-                          <input type="radio" id="inputBasicFemale" name="rating" value="-5">
+                          <input type="radio" id="inputBasicFemale" name="rating" value="1">
                             <label for="inputBasicFemale">Poor</label>
                         </div>
                       </div>

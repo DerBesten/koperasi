@@ -184,6 +184,24 @@
       <div>
         <div>
           <ul class="site-menu">
+            <li class="site-menu-category">Home</li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="{{ url('/')}}" data-slug="angular">
+                <i class="site-menu-icon wb-home" aria-hidden="true"></i>
+                <span class="site-menu-title">Home</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="site-menu">
+            <li class="site-menu-category">Comment</li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="{{ url('comment')}}" data-slug="angular">
+                <i class="site-menu-icon fa-comments-o" aria-hidden="true"></i>
+                <span class="site-menu-title">Comment</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="site-menu">
             <li class="site-menu-category">Data Karyawan</li>
             <li class="site-menu-item">
               <a class="animsition-link" href="{{ url('karyawan/datakar')}}" data-slug="angular">
@@ -205,11 +223,17 @@
             </li>
           </ul>
           <ul class="site-menu">
-            <li class="site-menu-category">Comment</li>
+            <li class="site-menu-category">Group</li>
             <li class="site-menu-item">
-              <a class="animsition-link" href="{{ url('comment')}}" data-slug="angular">
-                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
-                <span class="site-menu-title">Comment</span>
+              <a class="animsition-link" href="{{ url('group')}}" data-slug="angular">
+                <i class="site-menu-icon fa-group" aria-hidden="true"></i>
+                <span class="site-menu-title">Group</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="{{ url('group/import')}}" data-slug="angular">
+                <i class="site-menu-icon wb-upload" aria-hidden="true"></i>
+                <span class="site-menu-title">Import Data Group</span>
               </a>
             </li>
           </ul>

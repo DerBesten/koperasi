@@ -99,16 +99,16 @@
             </a>
             <div class="profile-user">{{ $k->nama}}</div>
             <p>
-              @if($k->rating >= 9)
-              <h5>Grade  : A</h5>
-              @elseif($k->rating >= 7)
-              <h5>Grade  : B</h5>
-              @elseif($k->rating >= 6)
-              <h5>Grade  : C</h5>
-              @elseif($k->rating >= 4)
-              <h5>Grade  : D</h5>
+              @if($k->rating >= 4.5)
+              <h4>Grade  : A</h4>
+              @elseif($k->rating >= 3.5)
+              <h4>Grade  : B</h4>
+              @elseif($k->rating >= 2.5)
+              <h4>Grade  : C</h4>
+              @elseif($k->rating >= 1.5)
+              <h4>Grade  : D</h4>
               @else
-              <h5>Grade  : E</h5>
+              <h4>Grade  : E</h4>
               @endif
             </p>
           </div>
@@ -142,16 +142,16 @@
             </a>
             <div class="profile-user">{{ $k->nama}}</div>
             <p>
-              @if($k->rating >= 9)
-              <h5>Grade  : A</h5>
-              @elseif($k->rating >= 7)
-              <h5>Grade  : B</h5>
-              @elseif($k->rating >= 6)
-              <h5>Grade  : C</h5>
-              @elseif($k->rating >= 4)
-              <h5>Grade  : D</h5>
+              @if($k->rating >= 4.5)
+              <h4>Grade  : A</h4>
+              @elseif($k->rating >= 3.5)
+              <h4>Grade  : B</h4>
+              @elseif($k->rating >= 2.5)
+              <h4>Grade  : C</h4>
+              @elseif($k->rating >= 1.5)
+              <h4>Grade  : D</h4>
               @else
-              <h5>Grade  : E</h5>
+              <h4>Grade  : E</h4>
               @endif
             </p>
           </div>
