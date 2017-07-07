@@ -130,7 +130,7 @@ class DataController extends Controller
 
         $d->save();
 
-      return redirect('karyawan/datakar');
+      return redirect('karyawan');
     }
 
     public function edit($id)
@@ -180,7 +180,7 @@ class DataController extends Controller
 
       $k->save();
 
-      return redirect('karyawan/datakar');
+      return redirect('karyawan');
     }
 
     public function delete($id)
@@ -191,7 +191,7 @@ class DataController extends Controller
 
       $k->delete();
 
-      return redirect('karyawan/datakar');
+      return redirect('karyawan');
     }
 
     public function upload()
@@ -234,7 +234,7 @@ class DataController extends Controller
           }
         }
       }
-      return redirect('karyawan/datakar');
+      return redirect('karyawan');
     }
 
     public function active($id)
@@ -244,7 +244,7 @@ class DataController extends Controller
       $da->status = 1;
       $da->save();
 
-      return redirect(url('karyawan/datakar'));
+      return redirect(url('karyawan'));
     }
 
     public function notactive($id)
@@ -254,7 +254,7 @@ class DataController extends Controller
       $da->status = 2;
       $da->save();
 
-      return redirect(url('karyawan/datakar'));
+      return redirect(url('karyawan'));
     }
 
     public function booking($id)
@@ -264,7 +264,7 @@ class DataController extends Controller
       $da->status = 3;
       $da->save();
 
-      return redirect(url('karyawan/datakar'));
+      return redirect(url('karyawan'));
     }
 
     public function standby($id)
@@ -274,6 +274,6 @@ class DataController extends Controller
       $da->status = 4;
       $da->save();
 
-      return redirect(url('karyawan/datakar'));
+      return redirect(url('karyawan'));
     }
 }
