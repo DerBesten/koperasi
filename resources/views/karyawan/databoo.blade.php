@@ -5,7 +5,7 @@
   <div class="page-content">
     <div class="panel">
       <div class="panel-heading">
-        <h3 class="panel-title">Data PramuGolf Active</h3>
+        <h3 class="panel-title">Data PramuGolf Booking</h3>
       </div>
       <div class="panel-body">
         <div class="row row-lg">
@@ -13,7 +13,7 @@
             <!-- Example Toolbar -->
             <div class="example-wrap">
               <div class="example">
-                
+
                 <table id="exampleTableToolbar" data-mobile-responsive="true">
                   <thead>
                     <tr>

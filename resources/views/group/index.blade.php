@@ -36,7 +36,7 @@
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $g->nama_group}}</td>
                       <td class="text-nowrap">
-                        <a href="{{ url('/group/edit/'.$g->caddy_id) }}">
+                        <a href="{{ url('/group/edit/'.$g->id) }}">
                           <button type="button" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" data-original-title="Edit">
                             <i class="icon wb-wrench" aria-hidden="true"></i>
                           </button>

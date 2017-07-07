@@ -36,7 +36,7 @@ class DataController extends Controller
       # code...
       $karyawan = Data::where('status', 3)->orderBy('group', 'asc')->orderBy('updated_at', 'asc')->paginate(999);
 
-      return view('karyawan.datakar', ['karyawan' => $karyawan]);
+      return view('karyawan.databoo', ['karyawan' => $karyawan]);
     }
 
     public function detail($id)

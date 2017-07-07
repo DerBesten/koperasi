@@ -51,6 +51,7 @@ class GroupController extends Controller
       $gr->nama_group = $r->nama;
 
       $gr->save();
+      return redirect('group');
     }
 
     public function delete($id)
