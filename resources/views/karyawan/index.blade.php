@@ -21,6 +21,13 @@
                       </button>
                     </a>
                   </div>
+                  <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    <a href="{{ url('karyawan/pdf') }}">
+                      <button type="button" class="btn btn-outline btn-default">
+                        <i class="icon wb-plus" aria-hidden="true"></i>
+                      </button>
+                    </a>
+                  </div>
                 </div>
                 <table id="exampleTableToolbar" data-mobile-responsive="true">
                   <thead>

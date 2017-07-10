@@ -33,6 +33,10 @@ Route::group(['prefix' => 'karyawan'], function() {
   Route::get('notactive/{id}', 'DataController@notactive');
   Route::get('booking/{id}', 'DataController@booking');
   Route::get('standby/{id}', 'DataController@standby');
+  Route::get('pdf',[
+    'uses'=>'DataController@pdf',
+    'as'=>'caddy.pdf',
+]);
 });
 
 Route::group(['prefix' => 'comment'], function() {

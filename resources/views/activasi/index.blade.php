@@ -39,6 +39,7 @@
                       <option value="1">Active</option>
                       <option value="2">Non Aktif</option>
                       <option value="3">Booking</option>
+                      <option value="4">StandBy</option>
                     </select>
                   </div>
                   <div class="form-group form-material">

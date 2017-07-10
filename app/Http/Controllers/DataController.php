@@ -8,6 +8,7 @@ use App\Komentar;
 use App\Operation;
 use App\Group;
 use Excel;
+use PDF;
 use Charts;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
@@ -26,7 +27,7 @@ class DataController extends Controller
     public function karyawan()
     {
       # code...
-      $karyawan = Data::where('status', 1)->orderBy('group', 'asc')->orderBy('updated_at', 'asc')->paginate(999);
+      $karyawan = Data::orderBy('group', 'asc')->orderBy('updated_at', 'asc')->paginate(999);
 
       return view('karyawan.datakar', ['karyawan' => $karyawan]);
     }
@@ -275,5 +276,15 @@ class DataController extends Controller
       $da->save();
 
       return redirect(url('karyawan'));
+    }
+
+    public function pdf()
+    {
+      # code...
+      $customer = Data::orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
+
+      $pdf = PDF::loadView('karyawan.pdf',compact('customer'))->setPaper('a4', 'landscape');
+
+      return $pdf->stream();
     }
 }

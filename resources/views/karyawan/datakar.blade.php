@@ -13,7 +13,7 @@
             <!-- Example Toolbar -->
             <div class="example-wrap">
               <div class="example">
-                
+
                 <table id="exampleTableToolbar" data-mobile-responsive="true">
                   <thead>
                     <tr>
@@ -28,6 +28,7 @@
                   </thead>
                   <tbody>
                     @foreach($karyawan as $key => $kar)
+                    @if($kar->status == 1 || $kar->status == 4)
                     <tr>
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $kar->nama}}</td>
@@ -93,6 +94,7 @@
                         </a>
                       </td>
                     </tr>
+                    @endif
                     @endforeach
                   </tbody>
                 </table>
