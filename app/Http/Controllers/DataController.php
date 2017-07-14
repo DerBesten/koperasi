@@ -121,6 +121,7 @@ class DataController extends Controller
         $d->group = $req->group;
         $d->status_perkawinan = $req->statusp;
         $d->status = $req->status;
+
         // $this->validate($req, [
         //     'photo' => 'required|image', 'mimes:jpg,jpeg,JPEG,png,gif,bmp', 'max:2024',
         //     ]);
