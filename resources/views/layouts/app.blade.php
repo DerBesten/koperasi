@@ -27,7 +27,6 @@
   <link rel="stylesheet" href="{{ url('../vendor/flag-icon-css/flag-icon.css')}}">
 
   <!-- Plugin -->
-  <link rel="stylesheet" href="{{ url('../vendor/raty/jquery.raty.css')}}">
   <!-- <link rel="stylesheet" href="{{ url('../vendor/chartist-js/chartist.css')}}"> -->
   <link rel="stylesheet" href="{{ url('../vendor/aspieprogress/asPieProgress.css')}}">
   <link rel="stylesheet" href="{{ url('../vendor/bootstrap-table/bootstrap-table.css')}}">

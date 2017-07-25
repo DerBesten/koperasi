@@ -29,6 +29,8 @@ class OperationController extends Controller
 
       $k->operations_caddy_id = $r->input('data_id');
       $k->nama_golfer = $r->input('nama');
+      $k->no_bagtag = $r->input('nb');
+      $k->clubs = $r->input('clubs');
       $k->tanggal = date('Y-m-d');
 
       $d->save() && $k->save();

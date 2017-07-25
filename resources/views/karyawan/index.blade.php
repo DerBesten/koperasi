@@ -32,8 +32,6 @@
                     <tr>
                       <th>No</th>
                       <th>Nama PramuGolf</th>
-                      <th>Nomor Handphone</th>
-                      <th>Email</th>
                       <th>Group</th>
                       <th>Status</th>
                       <th class="text-nowrap">Option</th>
@@ -44,8 +42,6 @@
                     <tr>
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $kar->nama}}</td>
-                      <td>{{ $kar->tlp}}</td>
-                      <td>{{ $kar->email }}</td>
                       <td>{{ $kar->group }}</td>
                       <td>
                         <div class="dropdown">

@@ -27,6 +27,18 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label class="col-sm-3 control-label">No BagTag: </label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nb" placeholder="No Bag" autocomplete="off" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Clubs: </label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="clubs" placeholder="Clubs" autocomplete="off" />
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
                       <button type="submit" class="btn btn-primary">Submit </button>
                       <button type="reset" class="btn btn-warning">Reset</button>
