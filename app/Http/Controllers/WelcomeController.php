@@ -12,7 +12,7 @@ class WelcomeController extends Controller
     public function index()
     {
       # code...
-      $kar = Data::all();
+      $kar = Data::orderBy('updated_at', 'asc')->paginate(999);
       $count = 0;
       foreach ($kar as $key => $value) {
         if ($value->status == 1) {

@@ -17,6 +17,7 @@ class CreateOperationsTable extends Migration
           $table->engine = 'InnoDB';
           $table->increments('operations_id');
           $table->integer('operations_caddy_id')->unsigned();
+          $table->string('nama_caddy');
           $table->string('nama_golfer');
           $table->string('no_bagtag');
           $table->string('clubs');
