@@ -279,13 +279,18 @@ class DataController extends Controller
       return redirect(url('karyawan'));
     }
 
-    public function pdf()
+    public function pdf(Request $r)
     {
       # code...
+      $first = $r->input('');
+      $end = $r->input('');
+      $cus = Data::where('tanggal','>=',$jan_awal)->where('tanggal','<=',$jan_akhir)->get();
       $customer = Data::orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
 
-      $pdf = PDF::loadView('karyawan.pdf',compact('customer'))->setPaper('a4', 'landscape');
+      $pdf = PDF::loadView('karyawan.pdf',compact('cus'))->setPaper('a4', 'landscape');
 
       return $pdf->stream();
     }
+
+    
 }

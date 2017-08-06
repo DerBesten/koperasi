@@ -17,6 +17,14 @@ class OperationController extends Controller
       return view('work.index', ['kar' => $kar]);
     }
 
+    public function ajaxKode(Request $req)
+    {
+      # code...
+      $nama_cad = Data::where('status', 1)->where('nama', $req->nama)->first();
+
+      return $nama_cad;
+    }
+
     public function save(Request $r )
     {
       # code...

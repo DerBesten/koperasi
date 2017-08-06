@@ -19,7 +19,7 @@ class KomentarController extends Controller
     public function ajaxKode(Request $req)
     {
       # code...
-      $nama_caddy = Data::where('nama', $req->nama)->first();
+      $nama_caddy = Data::where('status', 3)->where('nama', $req->nama)->first();
 
       return $nama_caddy;
     }

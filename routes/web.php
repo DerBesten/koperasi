@@ -59,7 +59,8 @@ Route::group(['prefix' => 'work'], function() {
   Route::get('/index/{id}', 'OperationController@index');
   Route::get('create', 'DataController@create');
   Route::post('create', 'OperationController@save');
-  Route::get('edit/{id}', 'DataController@edit');
+  Route::post('/ajax/kode','OperationController@ajaxKode');
+  Route::get('edit/{id}', 'OperationController@edit');
   Route::post('edit', 'DataController@update');
   Route::get('delete/{id}', 'DataController@delete');
   Route::get('detail/{id}', 'DataController@detail');
