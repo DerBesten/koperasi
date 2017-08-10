@@ -36,7 +36,7 @@ class OperationController extends Controller
       $d->status = 3;
 
       $k->operations_caddy_id = $r->input('data_id');
-      $k->nama_caddy = $r->input('namac');
+      $k->nama_caddy = $r->input('nama_caddy');
       $k->nama_golfer = $r->input('nama');
       $k->no_bagtag = $r->input('nb');
       $k->clubs = $r->input('clubs');
@@ -45,5 +45,28 @@ class OperationController extends Controller
       $d->save() && $k->save();
 
       return redirect('/');
+    }
+
+    public function halamanedit()
+    {
+      # code...
+      date_default_timezone_set('Asia/Jakarta');
+      $tahun = date('Y');
+      $bulan = date('m');
+      $har = date('d');
+      $harian = $tahun.'-'.$bulan.'-'.$har;
+
+      $jan = Operation::where('tanggal','=',$harian)->get();
+
+      return view('work.haledit', ['jan' => $jan]);
+
+    }
+
+    public function edit($id)
+    {
+      # code...
+      $operation = Operation::findOrFail($id);
+
+      return view('work.edit', ['operation' => $operation]);
     }
 }

@@ -51,6 +51,7 @@ class DataController extends Controller
       $hari = cal_days_in_month(CAL_GREGORIAN, $bulan,$tahun);
       $harian = $tahun.'-'.$bulan.'-'.$har;
 
+      
       $jan_awal = $tahun.'-'.'01'.'-'.'01'; $jan_akhir = $tahun.'-'.'01'.'-'.'31';
       $feb_awal = $tahun.'-'.'02'.'-'.'01'; $feb_akhir = $tahun.'-'.'02'.'-'.'29';
       $mar_awal = $tahun.'-'.'03'.'-'.'01'; $mar_akhir = $tahun.'-'.'03'.'-'.'31';
@@ -292,5 +293,5 @@ class DataController extends Controller
       return $pdf->stream();
     }
 
-    
+
 }

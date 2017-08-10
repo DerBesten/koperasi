@@ -17,7 +17,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Caddy :</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="namac" id="" value="{{ $kar->nama}}" disabled>
+                      <input type="text" class="form-control" name="nama_caddy" value="{{ $kar->nama}}">
                     </div>
                   </div>
                   <div class="form-group">

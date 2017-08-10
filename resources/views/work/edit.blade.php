@@ -20,7 +20,7 @@
                       <select class="form-control select2-hidden-accessible" data-plugin="select2" tabindex="-1" aria-hidden="true"
                               id="nama_cad" placeholder="Pilih Nama Caddy" name="nama">
                         <option></option>
-                        @foreach($data as $value)
+                        @foreach($operation as $value)
                         <option>{{ $value->nama}}</option>
                         @endforeach
                       </select>
