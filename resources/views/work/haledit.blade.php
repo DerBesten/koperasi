@@ -34,7 +34,7 @@
                       <td>{{ $op->nama_golfer}}</td>
                       <td>{{ $op->clubs }}</td>
                       <td class="text-nowrap">
-                        <a href="{{ url('/work/edit/'.$op->caddy_id) }}">
+                        <a href="{{ url('/work/edit/'.$op->operations_id) }}">
                           <button type="button" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" data-original-title="Edit">
                             <i class="icon wb-wrench" aria-hidden="true"></i>
                           </button>

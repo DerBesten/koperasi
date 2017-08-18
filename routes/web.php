@@ -62,7 +62,7 @@ Route::group(['prefix' => 'work'], function() {
   Route::post('/ajax/kode','OperationController@ajaxKode');
   Route::get('haledit', 'OperationController@halamanedit');
   Route::get('edit/{id}', 'OperationController@edit');
-  Route::post('edit', 'DataController@update');
+  Route::post('edit', 'OperationController@update');
   Route::get('delete/{id}', 'DataController@delete');
   Route::get('detail/{id}', 'DataController@detail');
   Route::post('import', 'DataController@import');
