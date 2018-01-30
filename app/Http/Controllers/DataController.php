@@ -283,14 +283,17 @@ class DataController extends Controller
     public function pdf(Request $r)
     {
       # code...
+      date_default_timezone_set('Asia/Jakarta');
+      $tahun = date('Y');
+      $jan_awal = $tahun.'-'.'10'.'-'.'01'; $jan_akhir = $tahun.'-'.'10'.'-'.'31';
       $first = $r->input('');
       $end = $r->input('');
-      $cus = Data::where('tanggal','>=',$jan_awal)->where('tanggal','<=',$jan_akhir)->get();
-      $customer = Data::orderBy('nama', 'asc')->orderBy('group', 'asc')->paginate(999);
+      $cus = Operation::where('tanggal','>=',$jan_awal)->where('tanggal','<=',$jan_akhir)->get();
+      $customer = Operation::orderBy('nama_caddy', 'asc')->orderBy('no_bagtag', 'asc')->paginate(999);
 
       $pdf = PDF::loadView('karyawan.pdf',compact('cus'))->setPaper('a4', 'landscape');
 
-      return $pdf->stream();
+      return $pdf->stream(['customer' => $customer]);
     }
 
 

@@ -97,4 +97,14 @@ class OperationController extends Controller
 
       return redirect('work/haledit');
     }
+
+    public function delete($id)
+    {
+      date_default_timezone_set('Asia/Jakarta');
+      $k = Operation::findOrFail($id);
+
+      $k->delete();
+
+      return redirect('work/haledit');
+    }
 }

@@ -26,7 +26,7 @@
                 <th class="tg-3wr7">Grade<br></th>
                 <th class="tg-3wr7">Jumlah Turun<br></th>
               </tr>
-              @foreach ($customer as $key => $data)
+              @foreach ($cus $key => $data)
               <tr>
                 <td class="tg-rv5w" width="3%">{{ $key + 1 }}</td>
                 <td class="tg-rv4w" width="20%">{{$data->nama}}</td>

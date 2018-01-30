@@ -39,7 +39,7 @@
                             <i class="icon wb-wrench" aria-hidden="true"></i>
                           </button>
                         </a>
-                        <a href="{{ url('/work/delete/'.$op->id) }}">
+                        <a href="{{ url('/work/delete/'.$op->operations_id) }}">
                           <button type="button" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" data-original-title="Delete">
                             <i class="icon wb-close" aria-hidden="true"></i>
                           </button>

@@ -35,7 +35,7 @@ Route::group(['prefix' => 'karyawan'], function() {
   Route::get('standby/{id}', 'DataController@standby');
   Route::get('pdf',[
     'uses'=>'DataController@pdf',
-    'as'=>'caddy.pdf',
+    'as'=>'karyawan.pdf',
 ]);
 });
 
@@ -63,7 +63,7 @@ Route::group(['prefix' => 'work'], function() {
   Route::get('haledit', 'OperationController@halamanedit');
   Route::get('edit/{id}', 'OperationController@edit');
   Route::post('edit', 'OperationController@update');
-  Route::get('delete/{id}', 'DataController@delete');
+  Route::get('delete/{id}', 'OperationController@delete');
   Route::get('detail/{id}', 'DataController@detail');
   Route::post('import', 'DataController@import');
   Route::get('import', 'DataController@upload');
@@ -95,4 +95,12 @@ Route::group(['prefix' => 'activasi'], function() {
   Route::post('/ajax/kode','KomentarController@ajaxKode');
   Route::get('activate/{id}', 'KategoriController@activate');
   Route::get('deactivate/{id}', 'KategoriController@deactivate');
+});
+
+Route::group(['prefix' => 'report'], function() {
+  Route::get('irh', 'ReportController@inputharian');
+  Route::get('harian',[
+    'uses'=>'ReportController@harianpdf',
+    'as'=>'report.harian',
+  ]);
 });

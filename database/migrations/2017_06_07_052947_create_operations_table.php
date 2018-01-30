@@ -22,6 +22,8 @@ class CreateOperationsTable extends Migration
           $table->string('no_bagtag');
           $table->string('clubs');
           $table->string('tanggal');
+          $table->string('jam');
+          $table->string('remarks');
           $table->timestamps();
 
           $table->foreign('operations_caddy_id')->references('caddy_id')->on('data')->onDelete('cascade');
